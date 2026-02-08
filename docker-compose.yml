@@ -15,7 +15,7 @@ services:
       WORDPRESS_DB_CHARSET: ${WORDPRESS_DB_CHARSET}
     volumes:
       # - wordpress_data:/var/www/html
-      - ./html:/var/www/html  # Mount current directory (./html) to /var/www/html
+      - ./public_html:/var/www/html  # Mount public_html directory to match cPanel structure
     depends_on:
       - db
 

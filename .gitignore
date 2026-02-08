@@ -1,2 +1,4 @@
 .env
 .DS_Store
+tmp/
+public_html_bak/

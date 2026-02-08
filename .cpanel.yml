@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/lppmusgac/testv2
-    - /bin/cp -R html $DEPLOYPATH
+    - /bin/cp -R public_html $DEPLOYPATH

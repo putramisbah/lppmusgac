@@ -4083,7 +4083,7 @@ function erp_registrations_page() {
                                 <td><?php echo esc_html($reg->attendee_phone); ?></td>
                                 <td><?php echo esc_html($reg->attendee_job ? wp_unslash($reg->attendee_job) : '-'); ?></td>
                                 <td><?php echo esc_html($reg->ticket_quantity); ?></td>
-                                <td><?php echo esc_html(date_i18n('F j, Y g:i A', strtotime($reg->registration_date))); ?></td>
+                                <td><?php echo esc_html(mysql2date('F j, Y g:i A', $reg->registration_date)); ?></td>
                                 <td>
                                     <span class="status-<?php echo esc_attr($reg->status); ?>">
                                         <?php echo esc_html(ucfirst($reg->status)); ?>

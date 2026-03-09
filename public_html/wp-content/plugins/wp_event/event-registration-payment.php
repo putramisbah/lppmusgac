@@ -3499,6 +3499,21 @@ function erp_registrations_page() {
         }
     }
     
+    // Check timezone configuration and show warning if not set
+    $timezone_string = get_option('timezone_string');
+    if (empty($timezone_string)) {
+        echo '<div class="notice notice-warning is-dismissible">';
+        echo '<p><strong>⚠️ Timezone Not Configured!</strong></p>';
+        echo '<p>WordPress timezone is not set. Attendance timestamps may be incorrect. ';
+        echo 'Go to <a href="' . admin_url('options-general.php') . '" target="_blank"><strong>Settings > General</strong></a> ';
+        echo 'and set your timezone to ensure correct times are displayed.</p>';
+        echo '<p style="color: #646970; font-size: 12px; margin-top: 8px;">';
+        echo '📍 Current Server Time: <strong>' . date('Y-m-d H:i:s') . ' (UTC)</strong><br>';
+        echo '📍 Expected: Should reflect your local timezone (e.g., Asia/Jakarta for WIB)';
+        echo '</p>';
+        echo '</div>';
+    }
+    
     // Get filter parameters
     $search = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
     $filter_event = isset($_GET['filter_event']) ? intval($_GET['filter_event']) : 0;
